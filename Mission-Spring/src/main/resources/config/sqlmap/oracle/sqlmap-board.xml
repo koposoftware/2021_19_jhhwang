@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board.BoardDAO">
+	
+	<resultMap type="boardVO" id="boardMap">
+		<result column="view_cnt" property="viewCnt"/>
+		<result column="reg_date" property="regDate"/>
+		<result column="reply_cnt" property="replyCnt"/>
+		<result column="file_save_name" property="fileSaveName"/>
+	</resultMap>
+	
+	<resultMap type="boardfileVO" id="boardfileMap">
+		<result column="board_no" property="boardNo"/>
+		<result column="file_ori_name" property="fileOriName"/>
+		<result column="file_save_name" property="fileSaveName"/>
+		<result column="file_size" property="fileSize"/>
+	</resultMap>
+	
+	<select id="selectAll" resultMap="boardMap">
+		select A.no, A.title, A.writer, A.content, A.view_cnt, to_char(A.reg_date, 'yyyy-mm-dd') as reg_date, NVL(B.reply_cnt, 0) as reply_cnt
+		from t_board A LEFT JOIN
+		(select board_no, count(*) as reply_cnt from t_reply group by board_no) B
+		ON(A.no = B.board_no)
+		where type = '01'
+		ORDER BY A.no desc
+	</select>
+	
+	<select id="selectByNo" parameterType="int" resultMap="boardMap">
+		select A.no, A.type, A.title, A.writer, A.content, A.view_cnt, to_char(A.reg_date, 'yyyy-mm-dd') as reg_date, B.file_save_name
+			from t_board A LEFT JOIN t_board_file B
+			ON(A.no = B.board_no)
+		where A.no = #{WYW} 
+	</select>
+	
+	<delete id="deleteByNo" parameterType="int">
+		delete 
+		  from t_board
+		where no = #{WYW}
+	</delete>
+	
+	<insert id="insertOne" parameterType="boardVO">
+		insert into t_board(no, type, title, writer, content)
+		 values(#{no}, #{type}, #{title}, #{writer}, #{content})
+	</insert>
+	
+	<select id="getSeq" resultType="int">
+		select seq_t_board_no.nextval from dual
+	</select>
+	
+	<insert id="insertFile" parameterType="boardfileVO">
+		insert into t_board_file(no, board_no, file_ori_name, file_save_name, file_size)
+		 values(seq_t_board_file_no.nextval, #{boardNo}, #{fileOriName}, #{fileSaveName}, #{fileSize})
+	</insert>
+	
+	<update id="increaseViewCnt" parameterType="int">
+		update t_board set view_cnt = view_cnt + 1
+		  where no = #{no}
+	</update>
+	
+	<update id="updateBoard" parameterType="boardVO">
+		update t_board set
+			type = #{type},
+			title = #{title},
+			content = #{content}
+		where no = #{no}
+	</update>
+	
+	<update id="updateFile" parameterType="boardfileVO">
+		update t_board_file set
+			file_ori_name = #{fileOriName},
+			file_save_name = #{fileSaveName},
+			file_size = #{fileSize}
+		where board_no = #{boardNo}
+	</update>
+	
+</mapper>

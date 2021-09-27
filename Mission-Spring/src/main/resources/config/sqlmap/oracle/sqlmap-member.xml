@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member.MemberDAO">
+	
+	<resultMap type="memberVO" id="memberMap">
+		<result column="reg_date" property="regDate"/>
+	</resultMap>
+	
+	<select id="login" parameterType="memberVO" resultType="memberVO">
+		select id, name, password, type
+		  from t_member
+		where id = #{id} and password = #{password}
+	</select>
+	
+	<select id="getStruct" parameterType="memberVO" resultType="String">
+		select struct
+		  from t_member
+		where id = #{id}
+	</select>
+	
+	<update id="setStruct" parameterType="memberVO">
+		update t_member set struct = #{struct}
+		where id = #{id}
+	</update>
+	
+	<insert id="signup" parameterType="memberVO">
+		insert into t_member(id, name, password, email, tel, agree)
+		 values(#{id}, #{name}, #{password}, #{email}, #{tel}, #{agree})
+	</insert>
+	
+	<select id="getAllStruct" resultType="String">
+		select struct
+		  from t_member
+	</select>
+	
+	<select id="getMypage" parameterType="String" resultType="memberVO">
+		select *
+		  from t_member
+		where id = #{id}
+	</select>
+	
+	<update id="updateMypage" parameterType="memberVO">
+		update t_member set 
+			password = #{password},
+			name = #{name},
+			email = #{email},
+			tel = #{tel},
+			agree = #{agree}
+		where id = #{id}
+	</update>
+	
+</mapper>

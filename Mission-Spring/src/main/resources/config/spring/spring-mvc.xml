@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context   
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.1.xsd
+    http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
+    http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd">
+
+	<context:component-scan base-package="kr.ac.kopo" />
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+    		<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+    			<property name="supportedMediaTypes">
+    				<list>
+    					<value>text/html; charset=utf-8</value>
+    				</list>
+    			</property>
+    		</bean>
+    		<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+	    		<property name="supportedMediaTypes">
+	    			<list>
+	    				<value>text/html; charset=utf-8</value>
+	    				<value>application/json; charset=utf-8</value>
+	    			</list>
+	    		</property>
+    		</bean>
+    	</mvc:message-converters>
+	</mvc:annotation-driven>
+	<mvc:default-servlet-handler />
+	
+	<task:scheduler id="jobScheduler" pool-size="10" />
+	<task:annotation-driven scheduler="jobScheduler" />
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="Location" value="classpath:config/prop/db.properties" />
+		<property name="fileEncoding" value="UTF-8" />
+	</bean>
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${driver}"/>
+		<property name="url" value="${url}"/>
+		<property name="username" value="${user}"/>
+		<property name="password" value="${password}"/>
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:config/mybatis/sqlMapConfig.xml"/>
+		<property name="mapperLocations" value="classpath:config/sqlmap/oracle/*.xml"/>
+	</bean>
+	
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory" />
+	</bean>
+	
+	<!-- HSQL -->
+	<jdbc:embedded-database id="embdDataSorce" type="HSQL">
+        <jdbc:script location="classpath:config/hsql/Schema.sql" encoding="UTF-8"/>
+        <jdbc:script location="classpath:config/hsql/Data.sql" encoding="UTF-8"/>
+    </jdbc:embedded-database>
+    
+    <bean id="hsqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="embdDataSorce"/>
+		<property name="configLocation" value="classpath:config/mybatis/sqlMapConfig.xml"/>
+		<property name="mapperLocations" value="classpath:config/sqlmap/hsql/*.xml"/>
+	</bean>
+    
+    <bean id="hsqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="hsqlSessionFactory" />
+	</bean>
+	<!-- HSQL -->
+	
+	<mvc:view-resolvers>
+		<mvc:jsp prefix="/WEB-INF/jsp/" suffix=".jsp" />
+	</mvc:view-resolvers>
+	
+	<!-- <bean class="kr.ac.kopo.interceptor.LoginInterceptor" id="loginInterceptor" /> -->
+	<bean class="kr.ac.kopo.interceptor.MsgInterceptor" id="MsgInterceptor" />
+	<mvc:interceptors>
+		<!-- <mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/login"/>
+			<mvc:exclude-mapping path="/member/login"/>
+			<mvc:exclude-mapping path="/signup"/>
+			<mvc:exclude-mapping path="/member/signup"/>
+			<mvc:exclude-mapping path="/assets/**"/>
+			<mvc:exclude-mapping path="/custom/**"/>
+			<mvc:exclude-mapping path="/"/>
+			<mvc:exclude-mapping path="/board"/>
+			<mvc:exclude-mapping path="/show/**"/>
+			<mvc:exclude-mapping path="/modal/**"/>
+			<ref bean="loginInterceptor"/>
+		</mvc:interceptor> -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/assets/**"/>
+			<mvc:exclude-mapping path="/custom/**"/>
+			<mvc:exclude-mapping path="/show/**"/>
+			<mvc:exclude-mapping path="/display"/>
+			<mvc:exclude-mapping path="/reply/notice/**"/>
+			<mvc:exclude-mapping path="/replyEcho"/>
+			<mvc:exclude-mapping path="/exchangeEcho"/>
+			<mvc:exclude-mapping path="/admin/**"/>
+			<mvc:exclude-mapping path="/inmemory/**"/>
+			<mvc:exclude-mapping path="/signal/rate"/>
+			<ref bean="MsgInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	<!-- websocket handler -->
+    <beans:bean id="replyEchochoHandler" class="kr.ac.kopo.handler.ReplyEchoHandler" />
+
+    <websocket:handlers>
+        <websocket:mapping handler="replyEchochoHandler" path="/replyEcho" />
+        <websocket:handshake-interceptors>
+            <beans:bean
+                class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"/>
+        </websocket:handshake-interceptors>
+    </websocket:handlers>
+	<!-- websocket handler -->
+	
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+  		<property name="maxUploadSize" value="10485760"></property>  	
+    </bean>
+
+
+	<bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="luffy0318@gmail.com" />
+		<property name="password" value="fnvl125!" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+    
+    <bean id="email" class="kr.ac.kopo.email.Email"></bean>
+    <bean id="emailSender" class="kr.ac.kopo.email.EmailSender"></bean>
+    
+</beans>
