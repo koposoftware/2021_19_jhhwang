@@ -10,15 +10,15 @@
 
 초기 하나 스톡시그널의 주제 선정 및 제안 발표 자료입니다.
 
-   <img src="demo.jpg"/>[발표자료](/스톡시그널_제안발표.pptx)<br>
-   
+   <img src="cover.jpg" width="640" />[제안발표자료](/스톡시그널_제안발표.pptx)<br>
+   <img src="demo.jpg" width="640" /><br>
    <iframe width="640" height="360" src="https://www.youtube.com/embed/sggIi6EwXP8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # 3. 프로젝트 결과
 프로젝트 결과를 추가하세요. 발표자료. 시연동영상을 추가하세요.
 
 ## 발표 ppt 
-   <img src="ppt.jpg"/>[발표자료](/project.pptx)<br>
+   <img src="cover2.jpg"/>[발표자료](/스톡시그널_최종발표.pptx)<br>
 
 ## 시연 동영상 
 
@@ -29,27 +29,13 @@
 
 본인 소개를 추가하세요
 
-|이름 |고길동|![gdKO](/gdko.jpg)|
-|연락처 | gdko(@)kopo.ac.kr|
+|이름 |황준호|![gdKO](/mypic.jpg)|
+|연락처 | luffy333(@)naver.com|
 |skill set| Frontend - HTML, CSS, Javascript|
-| | Backend - Java, Spring, Oracle|
+| | Backend - Java, Spring, Oracle, R|
 |자격증|  |
 |수상| |
 |특기사항|  TOEIC 990 |
 
 # 5. 기타
 그외 프로젝트를 더욱 설명할수 있는 것들을 추가하세요
-
-# 홈페이지 설정
- 본인 repository에서 "Setting"를 들어가서 GitHub Pages에서 설정 변경.
-* Source
- Source에서 원하는 branch와 directory 설정한다. 
- 기본값은 master 에 root를 설정 
- Save 버튼 꼭 누른다.
- 
- * Theme Chooser
- theme을 변경하여 좀더 이쁜 홈페이지를 만든다.
-   
-   <img src="homepage.JPG"/><br>
-   
- 
