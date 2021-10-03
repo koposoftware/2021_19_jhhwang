@@ -21,7 +21,7 @@
 최종 프로젝트 결과입니다.
 
 ## * 발표 ppt 
-   <img src="cover2.jpg" width="640" />[발표자료](/스톡시그널_최종발표.pptx)<br>
+   <img src="cover2.jpg" width="640" />[최종발표자료](/스톡시그널_최종발표.pptx)<br>
 
 ## * 시연 동영상 
 
