@@ -29,8 +29,33 @@
 
 # 4. 프로젝트 결과 요약
 
+## * 수행기간
+   2021-09-06 ~ 2021-10-05
+
+## * 담당업무
+   하나 스톡시그널 프로젝트 설계 및 제작, Front-End/Back-End 개발
+
 ## * 주요기능
    <img src="기능.jpg" width="640" />
+
+## * 사용기술
+- Spring-MVC 패턴
+- In-Memory Database(HyperSQL)을 사용하여 실시간 데이터 적재
+- Rule-based expert system
+- R과 Spring 연동(arules 패키지를 통한 연관성 분석)
+- Web-Socket을 활용한 알림기능
+- Spring MailSender, CoolSMS API를 사용한 이메일, 문자 알림
+- Spring Scheduler와 Spring Jsoup을 활용한 지표데이터 Batch처리
+- jQuery-UI를 활용하여 사용자 정의 커스텀 페이지 기능 구현
+
+## * 개발환경
+- OS : Window10, Linux CentOS7
+- Framework : Spring Framework 4, Mybatis
+- Server : Apache Tomcat9
+- Language : Java(jdk-1.8), Javascript, HTML, CSS, R
+- IDE Tools : Eclipse, Sqldeveloper, R-studio
+- DB : Oracle 11g, HyperSQL 2.5.0
+- Library : jQuery, iQuery-UI, JSTL, Bootstrap-4.3.1
 
 ## * 시스템 아키텍쳐
    <img src="시스템아키텍처.jpg" width="640" />
