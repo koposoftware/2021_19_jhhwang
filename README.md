@@ -19,30 +19,30 @@
 
 # 3. 프로젝트 결과
 최종 프로젝트 결과입니다.
-## 시스템 아키텍쳐
-   <img src="시스템아키텍처.jpg" width="640" />
-   
-## ERD
-   <img src="ERD.jpg" width="640" />
 
-## 서비스 구성도
-   <img src="서비스아키텍처.jpg" width="640" />
-
-## 주요기능
-   <img src="기능.jpg" width="640" />
-
-## 간트차트
-   <img src="간트차트.jpg" width="640" />
-
-## 발표 ppt 
+## * 발표 ppt 
    <img src="cover2.jpg" width="640" />[발표자료](/스톡시그널_최종발표.pptx)<br>
 
-## 시연 동영상 
+## * 시연 동영상 
 
    <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/6LxbdIjWP04" frameborder="0"></iframe>
-   
 
-# 4. 본인 소개
+# 4. 프로젝트 결과 요약
+
+## * 주요기능
+   <img src="기능.jpg" width="640" />
+
+## * 시스템 아키텍쳐
+   <img src="시스템아키텍처.jpg" width="640" />
+   
+## * ERD
+   <img src="ERD.jpg" width="640" />
+
+## * 서비스 구성도
+   <img src="서비스아키텍처.jpg" width="640" />
+
+
+# 5. 본인 소개
 
 |이름 |황준호|![jhHwang](/mypic.jpg)|
 |연락처 | luffy333(@)naver.com|
@@ -51,6 +51,3 @@
 |자격증|  |
 |수상|  |
 |특기사항|  |
-
-# 5. 기타
-그외 프로젝트를 더욱 설명할수 있는 것들을 추가하세요
