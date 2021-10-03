@@ -11,7 +11,8 @@
 초기 하나 스톡시그널의 주제 선정 및 제안 발표 자료입니다.
    
    <img src="cover.jpg" width="640" /><br>
-   [제안발표자료](/스톡시그널_제안발표.pptx)<br>
+   [제안발표자료](/스톡시그널_제안발표.pptx)<br><br>
+   초기 목업 화면입니다.<br>
    <img src="demopage.jpg" width="640" /><br>
    <iframe width="640" height="360" src="https://www.youtube.com/embed/sggIi6EwXP8" frameborder="0"></iframe>
 
