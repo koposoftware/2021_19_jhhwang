@@ -18,7 +18,21 @@
    <iframe width="640" height="360" src="https://www.youtube.com/embed/sggIi6EwXP8" frameborder="0"></iframe>
 
 # 3. 프로젝트 결과
-프로
+최종 프로젝트 결과입니다.
+## 시스템 아키텍쳐
+   <img src="시스템아키텍처.jpg" width="640" />
+   
+## ERD
+   <img src="ERD.jpg" width="640" />
+
+## 서비스 구성도
+   <img src="서비스아키텍처.jpg" width="640" />
+
+## 주요기능
+   <img src="기능.jpg" width="640" />
+
+## 간트차트
+   <img src="간트차트.jpg" width="640" />
 
 ## 발표 ppt 
    <img src="cover2.jpg" width="640" />[발표자료](/스톡시그널_최종발표.pptx)<br>
