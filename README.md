@@ -13,7 +13,8 @@
    <img src="cover.jpg" width="640" /><br>
    [제안발표자료](/스톡시그널_제안발표.pptx)<br><br>
    초기 목업 화면입니다.<br>
-   <img src="demopage.jpg" width="640" /><br>
+   <img src="demopage.jpg" width="640" /><br><br>
+   제안발표 영상입니다.<br>
    <iframe width="640" height="360" src="https://www.youtube.com/embed/sggIi6EwXP8" frameborder="0"></iframe>
 
 # 3. 프로젝트 결과
