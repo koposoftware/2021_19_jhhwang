@@ -86,5 +86,6 @@
 |연락처 | luffy333(@)naver.com|
 |skill set| Frontend - HTML, CSS, Javascript|
 | | Backend - Java, Spring, Oracle, HSQL|
+| | Etc - R, Git|
 |경력사항| 한국정보화진흥원 공공데이터 품질개선 업무 인턴 |
 |특기사항| 배운 내용 다른 사람에게 설명하고 공유하기 |
