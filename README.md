@@ -10,8 +10,8 @@
 
 초기 하나 스톡시그널의 주제 선정 및 제안 발표 자료입니다.
    
-   [제안발표자료](/스톡시그널_제안발표.pptx)<br>
    <img src="cover.jpg" width="640" /><br>
+   [제안발표자료](/스톡시그널_제안발표.pptx)<br>
    <img src="demopage.jpg" width="640" /><br>
    <iframe width="640" height="360" src="https://www.youtube.com/embed/sggIi6EwXP8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
