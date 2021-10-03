@@ -14,11 +14,11 @@
    [제안발표자료](/스톡시그널_제안발표.pptx)<br><br>
    초기 목업 화면입니다.<br>
    <img src="demopage.jpg" width="640" /><br><br>
-   제안발표 영상입니다.<br>
+   주제 제안발표 영상입니다.<br>
    <iframe width="640" height="360" src="https://www.youtube.com/embed/sggIi6EwXP8" frameborder="0"></iframe>
 
 # 3. 프로젝트 결과
-프로젝트 결과를 추가하세요. 발표자료. 시연동영상을 추가하세요.
+프로
 
 ## 발표 ppt 
    <img src="cover2.jpg" width="640" />[발표자료](/스톡시그널_최종발표.pptx)<br>
@@ -30,9 +30,7 @@
 
 # 4. 본인 소개
 
-본인 소개를 추가하세요
-
-|이름 |황준호|![gdKO](/mypic.jpg)|
+|이름 |황준호|![jhHwang](/mypic.jpg)|
 |연락처 | luffy333(@)naver.com|
 |skill set| Frontend - HTML, CSS, Javascript|
 | | Backend - Java, Spring, Oracle, R|
