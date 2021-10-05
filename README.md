@@ -82,6 +82,9 @@
 
 # 5. 본인 소개
 
+
+|항목|내용||
+|-----|---------------------------|----|
 |이름 |황준호|![jhHwang](/mypic.jpg)|
 |연락처 | luffy333(@)naver.com|
 |skill set| Frontend - HTML, CSS, Javascript|
