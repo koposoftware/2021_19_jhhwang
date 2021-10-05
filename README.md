@@ -15,7 +15,7 @@
    초기 목업 화면입니다.<br>
    <img src="demopage.jpg" width="640" /><br><br>
    주제 제안발표 영상입니다.<br>
-   [![영상](썸네일01.jpg)](https://www.youtube.com/embed/sggIi6EwXP8)
+   [![영상](thumb01.jpg)](https://www.youtube.com/embed/sggIi6EwXP8)
 
 # 3. 프로젝트 결과
 최종 프로젝트 결과입니다.
@@ -26,7 +26,7 @@
 
 ## * 시연 동영상 
 
-   [![영상](썸네일02.jpg)](https://www.youtube.com/embed/fn582GslTrw)
+   [![영상](thumb02.jpg)](https://www.youtube.com/embed/fn582GslTrw)
 
 # 4. 프로젝트 결과 요약
 
