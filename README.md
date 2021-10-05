@@ -26,7 +26,7 @@
 
 ## * 시연 동영상 
 
-   [![영상](썸네일02.jpg)]()
+   [![영상](썸네일02.jpg)](https://www.youtube.com/embed/fn582GslTrw)
 
 # 4. 프로젝트 결과 요약
 
